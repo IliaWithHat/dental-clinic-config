@@ -1,0 +1,23 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_ADDRESS}
+    password: ${EMAIL_PASSWORD}
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json.trusted.packages: "*"
+          json.type.mapping: mailDetails:org.ilia.mailsenderservice.entity.MailDetails
+
+eureka:
+  instance.prefer-ip-address: true
+  client.serviceUrl.defaultZone: http://eureka:8002/eureka/
