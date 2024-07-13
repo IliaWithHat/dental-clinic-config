@@ -8,5 +8,8 @@ eureka:
 
 server.port: 8003
 
-management.endpoints.web.exposure.include: "*"
-management.endpoint.gateway.enabled: true
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint:
+    health.show-details: always
+    gateway.enabled: true

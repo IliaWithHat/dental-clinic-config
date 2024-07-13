@@ -22,4 +22,6 @@ eureka:
 
 server.port: 8011
 
-management.endpoints.web.exposure.include: "*"
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint.health.show-details: always
