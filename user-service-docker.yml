@@ -3,6 +3,14 @@ spring.security.oauth2.resourceserver.opaquetoken:
   client-id: ${keycloak.client-id}
   client-secret: ${keycloak.client-secret}
 
+  kafka:
+    bootstrap-servers: kafka:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: mailDetails:org.ilia.userservice.entity.MailDetails
+
 keycloak:
   server-url: http://keycloak:8001
   realm: dental-clinic-realm
